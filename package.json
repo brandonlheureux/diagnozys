@@ -1,0 +1,9 @@
+{
+  "name": "diagnozys",
+  "description": "",
+  "scripts": {
+    "build:frontend": "cd ./public/app && yarn build && cd ../main && yarn build && cd ../practitioner && yarn build && cd ../../"
+  },
+  "private": true,
+  "dependencies": {}
+}

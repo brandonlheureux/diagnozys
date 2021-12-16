@@ -1,0 +1,39 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "dev": "nodemon index.js"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "auth0": "^2.37.0",
+    "aws-sdk": "^2.1046.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.1.0",
+    "express-openid-connect": "auth0/express-openid-connect",
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.1",
+    "helmet": "^4.6.0",
+    "jwks-rsa": "^2.0.5",
+    "mongodb": "^4.2.1",
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0",
+    "nodemon": "^2.0.15"
+  },
+  "private": true
+}

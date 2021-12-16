@@ -129,7 +129,7 @@ const Details = () => {
       lastName,
       height,
       weight,
-      race,
+      geneticAncestry,
       sex,
     },
   } = medicalReport;
@@ -192,8 +192,8 @@ const Details = () => {
                 <Value>{sex}</Value>
               </Field>
               <Field>
-                <Key>race</Key>
-                <Value>{race}</Value>
+                <Key>Genetic ancestry</Key>
+                <Value>{geneticAncestry}</Value>
               </Field>
               <Field>
                 <Key>Weight (kg)</Key>

@@ -5,7 +5,7 @@ import React, { useEffect, useState, createContext, useContext } from "react";
 export const UserContext = createContext(null);
 
 export const UserContextProvider = ({ children }) => {
-  const { getAccessTokenSilently } = useAuth0();
+  const { getAccessTokenSilently, logout } = useAuth0();
   const navigate = useNavigate();
   const [profile, setProfile] = useState(false);
 
@@ -32,10 +32,11 @@ export const UserContextProvider = ({ children }) => {
         if (data.redirectUrl) {
           navigate(data.redirectUrl);
         } else {
-          console.log(data);
+          console.log("cannot access resource - no server instructions")
         }
       } else {
         // how did we get here
+        logout()
         throw new Error("User profile not found | Unknown error");
       }
     } catch (error) {

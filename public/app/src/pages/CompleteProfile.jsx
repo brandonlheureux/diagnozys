@@ -15,7 +15,7 @@ const CompleteProfile = () => {
     dateOfBirth: "",
     weight: null,
     height: null,
-    race: "",
+    geneticAncestry: "",
     sex: "",
   });
 
@@ -27,9 +27,7 @@ const CompleteProfile = () => {
     try {
       const accessToken = await getAccessTokenSilently();
       const result = await fetch(
-        `${
-          process.env.REACT_APP_MAIN_DOMAIN || "http://localhost:5000"
-        }/api/v1/patient/completeProfile`,
+        `${process.env.REACT_APP_MAIN_DOMAIN}/api/v1/patient/completeProfile`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -45,7 +43,11 @@ const CompleteProfile = () => {
       } else {
         fetchProfile();
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    } finally {
+      fetchProfile();
+    }
     setIsLoading(false);
   };
 
@@ -130,14 +132,16 @@ const CompleteProfile = () => {
           />
         </FormElement>
         <FormElement>
-          <Label htmlFor="race">Race: </Label>
+          <Label htmlFor="geneticAncestry">
+            genetic ancestry (answer however you like):{" "}
+          </Label>
           <Input
             required
             onChange={handleChange}
             type="text"
-            name="race"
-            id="race"
-            placeholder="a race"
+            name="geneticAncestry"
+            id="geneticAncestry"
+            placeholder="anything"
           />
         </FormElement>
         <FormElement>
@@ -152,7 +156,7 @@ const CompleteProfile = () => {
             <option value="" disabled hidden>
               Choose Here
             </option>
-            <option value="genetically amiguous">genetically ambiguous</option>
+            <option value="genetically ambiguous">genetically ambiguous</option>
             <option value="male">male</option>
             <option value="female">female</option>
           </Select>

@@ -9,14 +9,14 @@ const { MongoClient } = require("mongodb");
  * @body ?dateOfBirth
  * @body ?weight
  * @body ?height
- * @body ?race
+ * @body ?geneticAncestry
  * ---
  * @response profile updated status
  */
 const updateProfile = async (req, res, next) => {
   const {
     user: { sub: userId },
-    body: { firstName, lastName, dateOfBirth, weight, height, race },
+    body: { firstName, lastName, dateOfBirth, weight, height, geneticAncestry },
   } = req;
 
   // check for missing input and user
@@ -29,7 +29,7 @@ const updateProfile = async (req, res, next) => {
   if (dateOfBirth) userProfile.dateOfBirth = dateOfBirth;
   if (weight) userProfile.weight = weight;
   if (height) userProfile.height = height;
-  if (race) userProfile.race = race;
+  if (geneticAncestry) userProfile.geneticAncestry = geneticAncestry;
 
   // if nothin was passed for update, error
   if (!Object.keys(userProfile).length) {

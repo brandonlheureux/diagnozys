@@ -68,7 +68,6 @@ const UploadImage = ({ diagnosisId, refresh }) => {
   //  Local files
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("run");
     const file = e.target.files[0];
     if (!file) return setError("No file selected");
     const url = URL.createObjectURL(file);

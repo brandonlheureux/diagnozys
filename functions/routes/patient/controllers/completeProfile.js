@@ -10,7 +10,7 @@ const { MongoClient } = require("mongodb");
  * @body dateOfBirth
  * @body weight
  * @body height
- * @body race
+ * @body geneticAncestry
  * @body sex
  * ---
  * @response profile completion status
@@ -19,7 +19,7 @@ const { MongoClient } = require("mongodb");
 const completeProfile = async (req, res, next) => {
   const {
     user: { sub: userId },
-    body: { firstName, lastName, dateOfBirth, weight, height, race, sex },
+    body: { firstName, lastName, dateOfBirth, weight, height, geneticAncestry, sex },
   } = req;
   // check for missing input and user
   if (!userId) return res.status(401).json({ error: "Unauthenticated" });
@@ -29,7 +29,7 @@ const completeProfile = async (req, res, next) => {
     !dateOfBirth ||
     !weight ||
     !height ||
-    !race ||
+    !geneticAncestry ||
     !sex
   ) {
     return res.status(400).json({ error: "Missing form data" });
@@ -42,7 +42,7 @@ const completeProfile = async (req, res, next) => {
     dateOfBirth,
     weight,
     height,
-    race,
+    geneticAncestry,
     sex,
     profileComplete: true,
   };

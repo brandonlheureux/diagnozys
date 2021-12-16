@@ -56,7 +56,7 @@ const Reports = () => {
           onClick={() =>
             setPage(
               (page) =>
-                !loading && (reports[page].length === 10 ? page + 1 : page)
+                !loading && (reports[page]?.length === 10 ? page + 1 : page)
             )
           }
         >

@@ -9,7 +9,7 @@ const Profile = () => {
     return <h1>no profile</h1>;
   }
 
-  const { firstName, lastName, dateOfBirth, sex, race, weight, height, email } =
+  const { firstName, lastName, dateOfBirth, sex, geneticAncestry, weight, height, email } =
     profile;
   return (
     <ProfileWrapper>
@@ -28,8 +28,8 @@ const Profile = () => {
           <Value>{sex}</Value>
         </Field>
         <Field>
-          <Key>race</Key>
-          <Value>{race}</Value>
+          <Key>Genetic ancestry</Key>
+          <Value>{geneticAncestry}</Value>
         </Field>
         <Field>
           <Key>Weight (kg)</Key>
